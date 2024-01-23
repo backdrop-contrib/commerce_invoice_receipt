@@ -53,7 +53,7 @@ function commerce_invoice_receipt_mail_form_submit($form, &$form_state) {
   $recipient = check_plain($form_state['values']['email']);
   
   $params = array('order' => $order);
-  $from_email = variable_get('site_mail', '');
+  $from_email = config_get('commerce_invoice_receipt.settings', 'site_mail');
   
   $account = user_load($order->uid);
   $language = user_preferred_language($account);
@@ -103,7 +103,7 @@ class InvoiceMailSystem implements MailSystemInterface {
     foreach ($message['headers'] as $name => $value) {
       $mimeheaders[] = $name . ': ' . mime_header_encode($value);
     }
-    $line_endings = variable_get('mail_line_endings', MAIL_LINE_ENDINGS);
+    $line_endings = config_get('commerce_invoice_receipt.settings','mail_line_endings');
     return mail(
       $message['to'],
       mime_header_encode($message['subject']),

@@ -1,3 +1,4 @@
+type = module
 name = "Invoice Receipt"
 description = "Provides a printable invoice receipt along with HTML mailing rules."
 package = "Commerce (contrib)"
@@ -5,11 +6,4 @@ dependencies[] = commerce
 dependencies[] = commerce_order
 dependencies[] = emogrifier
 core = 7.x
-
-files[] = includes/commerce_invoice_receipt.admin.inc
-; Information added by Drupal.org packaging script on 2014-01-07
-version = "7.x-1.1"
-core = "7.x"
-project = "commerce_invoice_receipt"
-datestamp = "1389086009"
-
+backdrop = 1.x
