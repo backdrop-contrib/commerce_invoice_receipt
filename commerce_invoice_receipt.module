@@ -12,6 +12,7 @@ function commerce_invoice_receipt_autoload_info() {
     'commerce_invoice_receipt_admin' => 'commerce_invoice_receipt.admin.inc',
   );
 } 
+/** small change */
 
 /**
  * Implements hook_config_info().
