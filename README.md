@@ -19,7 +19,7 @@ Installation
 
 - Setup new Commerce Order display under Store -> Configuration -> Order Settings -> Manage Display '?q=admin/commerce/config/order/display'. Click on the 'Invoice/Receipt' tab. Unhide any fields you want to use in your invoice.
 
- - Setup a rule under Store -> Configuration -> Checkout settings -> Checkout rules '?q=admin/commerce/config/checkout/rules'. Then 'Add a checkout rule', you'll find an action called 'Send invoice receipt email' under Commerce Order that you can use.
+- Setup a rule under Store -> Configuration -> Checkout settings -> Checkout rules '?q=admin/commerce/config/checkout/rules'. Then 'Add a checkout rule', you'll find an action called 'Send invoice receipt email' under Commerce Order that you can use.
 
 
 Documentation
