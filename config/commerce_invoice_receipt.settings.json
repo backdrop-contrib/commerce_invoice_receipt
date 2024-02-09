@@ -1,11 +1,11 @@
 { 
   "_config_name": "commerce_invoice_receipt.settings",
-  "theme_default": NULL,
+  "theme_default": "NULL",
   "mail_system": [
     {
       "default-system": "DefaultMailSystem"
     }
     ],
   "site_mail": "",
-  "mail_line_endings": MAIL_LINE_ENDINGS
+  "mail_line_endings": "MAIL_LINE_ENDINGS"
 }

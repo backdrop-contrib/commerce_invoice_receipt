@@ -5,5 +5,4 @@ package = "Commerce (contrib)"
 dependencies[] = commerce
 dependencies[] = commerce_order
 dependencies[] = emogrifier
-core = 7.x
 backdrop = 1.x
