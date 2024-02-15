@@ -43,11 +43,15 @@ Current Maintainers
 Credits
 -------
 
-- Ported to Backdrop CMS by [Giant Rabbit](https://github.com/giant-rabbit).
+- Ported to Backdrop CMS by [Anna Heath](https://github.com/aheath),[Lauren Blais](https://github.com/rlblais),[Giant Rabbit](https://github.com/giant-rabbit).
 - Porting to Backdrop CMS development sponsored by [USENIX](https://www.usenix.org/).
 - Originally written for Drupal by [
 (jdelaune)
 ](https://www.drupal.org/u/jdelaune).
+- Drupal 7 version co-maintained by:
+  - [Aram Boyajyan (aramboyajyan)](https://www.drupal.org/u/aramboyajyan)
+  - [Jamil Daglees (Daglees)](https://www.drupal.org/u/daglees)
+  - [antoniotorres](https://www.drupal.org/u/antoniotorres)
 - Based on [Commerce Invoice Receipt](https://www.drupal.org/project/commerce_invoice_receipt).
 
 License
