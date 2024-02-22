@@ -6,6 +6,5 @@
       "default-system": "DefaultMailSystem"
     }
     ],
-  "site_mail": "",
   "mail_line_endings": "MAIL_LINE_ENDINGS"
 }

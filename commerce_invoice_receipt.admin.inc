@@ -46,75 +46,25 @@ function commerce_invoice_receipt_mail_form_submit($form, &$form_state) {
   $order = commerce_order_load($form_state['values']['order_id']);
   
   if ($order === FALSE) {
-    drupal_set_message(t('Order @order_id does not exist.', array('@order_id' => $form_state['values']['order_id'])));
-    drupal_goto('admin/commerce/orders');
+    backdrop_set_message(t('Order @order_id does not exist.', array('@order_id' => $form_state['values']['order_id'])));
+    backdrop_goto('admin/commerce/orders');
   }
   
   $recipient = check_plain($form_state['values']['email']);
   
   $params = array('order' => $order);
-  $from_email = config_get('commerce_invoice_receipt.settings', 'site_mail');
+  $from_email = config_get('system.core', 'site_mail');
   
   $account = user_load($order->uid);
   $language = user_preferred_language($account);
   
-  $sent = drupal_mail('commerce_invoice_receipt', 'invoice', $recipient, $language, $params, $from_email);
+  $sent = backdrop_mail('commerce_invoice_receipt', 'invoice', $recipient, $language, $params, $from_email);
   
   if (!$sent) {
-    drupal_set_message(t('E-mail failed.'));
+    backdrop_set_message(t('E-mail failed.'));
   }
   else {
     $message = t('Invoice e-mailed to @email.', array('@email' => $recipient));
-    drupal_set_message($message);
-  }
-}
-
-/**
-* Modify the drupal mail system to send HTML emails.
-*/
-class InvoiceMailSystem implements MailSystemInterface {
-  /**
-   * Concatenate and wrap the e-mail body for plain-text mails.
-   *
-   * @param $message
-   *   A message array, as described in hook_mail_alter().
-   *
-   * @return
-   *   The formatted $message.
-   */
-  public function format(array $message) {
-    $message['body'] = implode("\n\n", $message['body']);
-    return $message;
-  }
-  
-  /**
-   * Send an e-mail message, using Drupal variables and default settings.
-   *
-   * @see <a href="http://php.net/manual/en/function.mail.php" title="http://php.net/manual/en/function.mail.php" rel="nofollow">http://php.net/manual/en/function.mail.php</a>
-   * @see drupal_mail()
-   *
-   * @param $message
-   *   A message array, as described in hook_mail_alter().
-   * @return
-   *   TRUE if the mail was successfully accepted, otherwise FALSE.
-   */
-  public function mail(array $message) {
-    $mimeheaders = array();
-    foreach ($message['headers'] as $name => $value) {
-      $mimeheaders[] = $name . ': ' . mime_header_encode($value);
-    }
-    $line_endings = config_get('commerce_invoice_receipt.settings','mail_line_endings');
-    return mail(
-      $message['to'],
-      mime_header_encode($message['subject']),
-      // Note: e-mail uses CRLF for line-endings. PHP's API requires LF
-      // on Unix and CRLF on Windows. Drupal automatically guesses the
-      // line-ending format appropriate for your system. If you need to
-      // override this, adjust $conf['mail_line_endings'] in settings.php.
-      preg_replace('@\r?\n@', $line_endings, $message['body']),
-      // For headers, PHP's API suggests that we use CRLF normally,
-      // but some MTAs incorrectly replace LF with CRLF. See #234403.
-      join("\n", $mimeheaders)
-    );
+    backdrop_set_message($message);
   }
 }
