@@ -31,7 +31,7 @@ class InvoiceMailSystem implements MailSystemInterface {
     foreach ($message['headers'] as $name => $value) {
       $mimeheaders[] = $name . ': ' . mime_header_encode($value);
     }
-    $line_endings = config_get('commerce_invoice_receipt.settings','mail_line_endings');
+    $line_endings = MAIL_LINE_ENDINGS;
     return mail(
       $message['to'],
       mime_header_encode($message['subject']),

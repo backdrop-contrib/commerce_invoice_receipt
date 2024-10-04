@@ -8,37 +8,14 @@
  * Implements hook_install().
  */
 function commerce_invoice_receipt_install() {
-  config_set('mail_system',
-    array_merge(
-      config_get('commerce_invoice_receipt.settings', 'mail_system'),
-      array( 'commerce_invoice_receipt' => 'InvoiceMailSystem') 
-    )
-  );
+  $config = 'system.mail';
+  $config->set('commerce_invoice_receipt', 'InvoiceMailSystem');
+  $config->save();
 }
 
 /**
  * Implements hook_uninstall().
  */
 function commerce_invoice_receipt_uninstall() {
-  $mail_system = config_get('commerce_invoice_receipt.settings', 'mail_system');
-  unset($mail_system['commerce_invoice_receipt']);
-  config_set('commerce_invoice_receipt.settings', 'mail_system', $mail_system);
-}
-
-/**
- * Move settings from variables to config
- */
-function commerce_invoice_receipt_update_1000() {
-  $config = config('commerce_invoice_receipt.settings');
-  $config->set('theme_default', update_variable_get('theme_default', NULL));
-  $config->set('mail_system', update_variable_get('mail_system', array('default-system' => 'DefaultMailSystem')));
-  $config->set('site_mail', update_variable_get('site_mail', ''));
-  $config->set('mail_line_endings', update_variable_get('mail_line_endings', MAIL_LINE_ENDINGS));
-  $config->save();
-
-    // Delete variables.
-  update_variable_del('theme_default');
-  update_variable_del('mail_system');
-  update_variable_del('site_mail');
-  update_variable_del('mail_line_endings');
+  config_clear('system.mail', 'commerce_invoice_receipt');
 }

@@ -1,5 +1,7 @@
 <?php
 
+require_once('commerce_invoice_receipt.rules.inc');
+
 /**
  * @file
  * Provides a printable invoice receipt along with HTML mailing rules.
@@ -13,16 +15,6 @@ function commerce_invoice_receipt_autoload_info() {
   );
 } 
 
-/**
- * Implements hook_config_info().
- */
-function commerce_invoice_receipt_config_info() {
-  $prefixes['commerce_invoice_receipt.settings'] = array(
-    'label' => t('Commerce Invoice Receipt settings'),
-    'group' => t('Configuration'),
-  );
-  return $prefixes;
-}
 /**
  * Implements hook_menu().
  */
@@ -74,7 +66,7 @@ function commerce_invoice_receipt_menu() {
 
 function commerce_invoice_receipt_css_path(){
   // Get current default theme
-  $default_theme_path = backdrop_get_path('theme', config_get('commerce_invoice_receipt.settings', 'theme_default'));
+  $default_theme_path = backdrop_get_path('theme', config_get('system.core', 'theme_default'));
   $default_template_css = backdrop_get_path('module', 'commerce_invoice_receipt') . '/css/commerce_invoice_receipt.css';
   
   // Check commerce_invoice_receipt.css is in the current theme
@@ -125,7 +117,7 @@ function commerce_invoice_receipt_entity_info_alter(&$entity_info) {
 */
 function commerce_invoice_receipt_theme() {
   // Get current default theme
-  $default_theme_path = backdrop_get_path('theme', config_get('commerce_invoice_receipt.settings', 'theme_default'));
+  $default_theme_path = backdrop_get_path('theme', config_get('system.core', 'theme_default'));
   $default_template_path = backdrop_get_path('module', 'commerce_invoice_receipt') . '/templates';
 
   // Check commerce-order-invoice-view.tpl.php is in the current theme
