@@ -35,15 +35,15 @@ Bugs and feature requests should be reported in [the Issue Queue](https://github
 Current Maintainers
 -------------------
 
-- [Giant Rabbit](https://github.com/giant-rabbit).
-
-- Seeking additional maintainers.
-
+- [Eli Lisseck](https://github.com/elisseck).
+- [Anthony Nemirovsky](https://github.com/anemirovsky).
 
 Credits
 -------
 
-- Ported to Backdrop CMS by [Anna Heath](https://github.com/aheath),[Lauren Blais](https://github.com/rlblais),[Giant Rabbit](https://github.com/giant-rabbit).
+- Backdrop development supported by [USENIX](https://www.usenix.org/).
+- Backdrop development supported by [Giant Rabbit](https://giantrabbit.com).
+- Ported to Backdrop CMS by [Anna Heath](https://github.com/aheath),[Lauren Blais](https://github.com/rlblais)
 - Porting to Backdrop CMS development sponsored by [USENIX](https://www.usenix.org/).
 - Originally written for Drupal by [
 (jdelaune)
@@ -52,7 +52,6 @@ Credits
   - [Aram Boyajyan (aramboyajyan)](https://www.drupal.org/u/aramboyajyan)
   - [Jamil Daglees (Daglees)](https://www.drupal.org/u/daglees)
   - [antoniotorres](https://www.drupal.org/u/antoniotorres)
-- Based on [Commerce Invoice Receipt](https://www.drupal.org/project/commerce_invoice_receipt).
 
 License
 -------
