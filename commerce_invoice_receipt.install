@@ -8,7 +8,7 @@
  * Implements hook_install().
  */
 function commerce_invoice_receipt_install() {
-  $config = 'system.mail';
+  $config = config('system.mail');
   $config->set('commerce_invoice_receipt', 'InvoiceMailSystem');
   $config->save();
 }
